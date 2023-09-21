@@ -4,6 +4,9 @@
   "engines": {
     "node": ">=16.x"
   },
+  "scripts": {
+    "start": "node index.js"
+  },
   "bootcamp": {
     "createdAt": "2023-09-04T18:43:43.114Z",
     "version": "6.7.0",
