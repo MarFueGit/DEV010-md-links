@@ -1,3 +1,3 @@
 const { mdLinks } = require("./lib/mdLinks");
-mdLinks("/mary/ejemplo.md")
+mdLinks("./README.md")
 module.exports = () => mdLinks;
