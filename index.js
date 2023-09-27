@@ -14,9 +14,9 @@ const mdLinks = (pathToValidate) =>
       reject(new Error("El archivo no es compatible"));
     }
     // Empezamos a leer el archivo
-   readLinksFile(pathToValidate)
-   .then((links) => resolve(links))
-   .catch((error) => reject(error))
+    readLinksFile(pathToValidate)
+      .then((links) => resolve(links))
+      .catch((error) => reject(error));
   });
 
 // pruebas de mdLinks

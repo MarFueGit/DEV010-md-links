@@ -1,4 +1,4 @@
-const { readLinksFile } = require("./fileValidations");
+const { readLinksFile } = require("../lib/fileValidations");
 
 // mock del console.log
 global.console = { log: jest.fn() };
