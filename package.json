@@ -14,6 +14,8 @@
     "commit": "1e61f863787ca573e7e7235dfba9b94c0a4efae3"
   },
   "dependencies": {
+    "axios": "^1.5.1",
+    "chalk": "^4.1.2",
     "eslint": "^8.50.0",
     "jest": "^29.7.0",
     "jsdom": "^22.1.0",
