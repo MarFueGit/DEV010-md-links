@@ -1,5 +1,6 @@
 const { validatePath, validateExtension } = require("./lib/pathValidations");
 const { validateFileExists, readLinksFile } = require("./lib/fileValidations");
+const { isDirectory } = require("./lib/directoryValidations");
 
 
 // Declaramos la funcion principal
@@ -11,6 +12,11 @@ const mdLinks = (pathToValidate, validate = false) => // ruta del archivo y para
 
     // Verificamos si el archivo de la ruta existe en la computadora
     validateFileExists(pathToValidate);
+
+    // Validamos si es archivo o carpeta ---- PENDIENTE
+    if (isDirectory(pathToValidate)){
+      console.log("la ruta es una carpeta")
+    }
 
     //Verificamos la extension del archivo
     if (!validateExtension(pathToValidate)) {
