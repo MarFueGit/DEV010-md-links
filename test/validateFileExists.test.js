@@ -4,16 +4,6 @@ const { validateFileExists } = require("../lib/fileValidations");
 // mock del console.log
 global.console = { log: jest.fn() };
 
-// Mockear fs.promises.access
-//  jest.mock("fs/promises", () => {
-//   return {
-//     access: jest.fn(),
-//     constants: {
-//       F_OK: 0, // Simulamos que F_OK es 0
-//     },
-//   };
-// });
-
 describe("filevalidations", () => {
   it("validateFileExists retorna true", async () => {
     const pathToValidate =

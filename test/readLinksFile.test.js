@@ -7,7 +7,7 @@ describe("readLinksFile", () => {
   it("regresa un arrays de links ", async () => {
     const pathToValidate =
       "C:/Users/maric/Desktop/laboratoria/DEV010-md-links/ejemploLinks.md";
-    const links = await readLinksFile(pathToValidate);
+    const links = await readLinksFile(pathToValidate, true);
     expect(links.length).toBeGreaterThan(0);
   });
   it("regresa un error", async () => {

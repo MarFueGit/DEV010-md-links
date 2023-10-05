@@ -30,10 +30,8 @@ describe("validateLinks", () => {
 
     const pathToValidate =
       "C:/Users/maric/Desktop/laboratoria/DEV010-md-links/ejemploLinks.md";
-    // agregale el async
-
     // 1. Paso.Invocar a la funciona a testear y guardar el resultado en una variable
-    // ahora pasale las dos variables a la funcion validateLinks y agregale await, porque es una promesa
+    // ahora pasare las dos variables a la funcion validateLinks y agregare await, porque es una promesa
     const response = await validateLinks(links, pathToValidate);
     // Ahora hay que agregar el expect
     expect(response.length).toBeGreaterThan(0);
