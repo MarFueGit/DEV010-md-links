@@ -12,7 +12,7 @@ describe("readDirectory", () => {
     const pathToValidate =
       "C:/Users/maric/Desktop/laboratoria/DEV010-md-links/ejemplos";
     const files = readDirectory(pathToValidate);
-    expect(files.length).toBe(5);
+    expect(files.length).toBe(6);
   });
   it("Regresa error cuando la carpeta no existe", () => {
     const pathToValidate =
