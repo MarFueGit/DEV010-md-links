@@ -1,7 +1,7 @@
 const { validatePath } = require("../lib/pathValidations");
 
 // mock del console.log
-global.console = { log: jest.fn() };
+global.console = { log: jest.fn(), error: jest.fn() };
 
 describe("validatePath", () => {
   it("validatePath es absoluta", () => {

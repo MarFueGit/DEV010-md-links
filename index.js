@@ -63,14 +63,14 @@ const mdLinks = (
 // ---------------------------------------------------------------------------------------------------------
 
 // Invocamos la funcion principal mdLinks
-mdLinks("./ejemplos", true)
-  // .then: se utiliza para manejar el resultado exitoso de una promesa y ejecutar una función que toma links como parámetro.
-  .then((links) => {
-    console.log(links);
-  })
-  // .catch: se utiliza para gestionar el rechazo de una promesa y ejecutar una función que toma error como parámetro.
-  .catch((error) => {
-    console.log(error);
-  });
+// mdLinks("./ejemplos", true)
+//   // .then: se utiliza para manejar el resultado exitoso de una promesa y ejecutar una función que toma links como parámetro.
+//   .then((links) => {
+//     console.log(links);
+//   })
+//   // .catch: se utiliza para gestionar el rechazo de una promesa y ejecutar una función que toma error como parámetro.
+//   .catch((error) => {
+//     console.log(error);
+//   });
 
 module.exports = mdLinks;

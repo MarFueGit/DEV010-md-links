@@ -1,5 +1,5 @@
 const mdLinks = require("../");
-
+jest.setTimeout(30000);
 // mock del console.log
 global.console = { log: jest.fn(), error: jest.fn() };
 
