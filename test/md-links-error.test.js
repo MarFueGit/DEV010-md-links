@@ -8,7 +8,10 @@ jest.mock("../lib/fileValidations", () => ({
     new Promise((reject) => {
       return reject(new Error("No se pudieron validar"));
     }),
-  validateFileExists: () => new Promise((resolve) => resolve(true)),
+  validateFileExists: () =>
+    new Promise((resolve) => {
+      return resolve(true);
+    }),
 }));
 
 describe("mdLinks", () => {
@@ -16,7 +19,7 @@ describe("mdLinks", () => {
     const pathToValidate =
       "C:/Users/maric/Desktop/laboratoria/DEV010-md-links/ejemplos";
     try {
-      mdLinks(pathToValidate, true);
+     await mdLinks(pathToValidate, true);
     } catch (error) {
       expect(error.message).not.toBeUndefined();
     }
