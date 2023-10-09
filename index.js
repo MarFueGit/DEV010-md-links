@@ -13,7 +13,7 @@ const mdLinks = (
 ) =>
   // se utiliza para crear una nueva instancia de una promesa tambien representa una operación asincrónica
   new Promise((resolve, reject) => {
-    // Usamos validatePath para ver si la ruta es relativa o absoluta
+    // 1. Usamos validatePath para ver si la ruta es relativa o absoluta
     pathToValidate = validatePath(pathToValidate);
 
     // Verificamos si el archivo de la ruta existe en la computadora

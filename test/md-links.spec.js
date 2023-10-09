@@ -1,11 +1,8 @@
 const mdLinks = require("../");
+jest.setTimeout(30000);
 
 // mock del console.log
 global.console = { log: jest.fn(), error: jest.fn() };
-
-// jest.mock('../lib/fileValidations', () => ({
-//   validateFileExists: () => new Promise((reject) => reject(new Error('No se')))
-// }))
 
 describe("mdLinks", () => {
   it("Retorna los links del archivo sin validar", async () => {
