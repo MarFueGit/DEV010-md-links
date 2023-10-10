@@ -13,20 +13,23 @@ const mdLinks = (
 ) =>
   // se utiliza para crear una nueva instancia de una promesa tambien representa una operación asincrónica
   new Promise((resolve, reject) => {
-    // Usamos validatePath para ver si la ruta es relativa o absoluta
+    // 1. Usamos validatePath para ver si la ruta es relativa o absoluta
     pathToValidate = validatePath(pathToValidate);
 
-    // Verificamos si el archivo de la ruta existe en la computadora
+    // 2. Verificamos si el archivo de la ruta existe en la computadora
     validateFileExists(pathToValidate)
       .then(() => {
-        // Validamos si es archivo o carpeta
+        // 3. Validamos si es archivo o carpeta
         if (isDirectory(pathToValidate)) {
-          // si la ruta es una carpeta validamos todos los archivos de la carpeta.
+          //4. si la ruta es una carpeta validamos todos los archivos de la carpeta.
           console.log("la ruta es una carpeta");
           const files = readDirectory(pathToValidate);
+          // 5. unimos el nombre de los archivos con su ruta
           const filesRead = joinFilesPath(files, pathToValidate);
-          // Quitamos los archivos que no sean .md
+          // 6. Quitamos los archivos que no sean .md
           const filesMd = filesRead.filter((file) => validateExtension(file));
+          // 7. Hacemos un array de promesas utilizando .map(),para que se haga la extraccion de links
+          // por cada archivo de la carpeta
           const filesPromises = filesMd.map(
             (file) =>
               new Promise((resolve, reject) => {
@@ -36,22 +39,23 @@ const mdLinks = (
               })
           );
           console.log("files promises:", filesPromises);
+          // 8. Usamos Promise.all para resolver todas las promesas
           Promise.all(filesPromises)
             .then((links) => {
-              resolve(links);
+              resolve(links); // se ejecuta cuando todas las promesas en filesPromises se han resuelto correctamente.
             })
             .catch((error) =>
-              reject(
+              reject( // se ejecuta cuando alguna de las promesas en filesPromises es rechazada
                 new Error("Hubo un error al leer los archivos de la carpeta")
               )
             );
         } else {
-          // si la ruta es un archivo solo leemos el archivo
+          // 9. si la ruta es un archivo solo leemos el archivo
           //Verificamos la extension del archivo
           if (!validateExtension(pathToValidate)) {
             reject(new Error("El archivo no es compatible"));
           }
-          // Empezamos a leer el archivo
+          //10.  Empezamos a leer los links del archivo
           readLinksFile(pathToValidate, validate)
             .then((links) => resolve(links))
             .catch((error) => reject(error));
@@ -62,15 +66,15 @@ const mdLinks = (
 
 // ---------------------------------------------------------------------------------------------------------
 
-// Invocamos la funcion principal mdLinks
-// mdLinks("./ejemplos", true)
-//   // .then: se utiliza para manejar el resultado exitoso de una promesa y ejecutar una función que toma links como parámetro.
-//   .then((links) => {
-//     console.log(links);
-//   })
-//   // .catch: se utiliza para gestionar el rechazo de una promesa y ejecutar una función que toma error como parámetro.
-//   .catch((error) => {
-//     console.log(error);
-//   });
+//Invocamos la funcion principal mdLinks
+mdLinks("./ejemploLinks.md", true)
+  // .then: se utiliza para manejar el resultado exitoso de una promesa y ejecutar una función que toma links como parámetro.
+  .then((links) => {
+    console.log(links);
+  })
+  // .catch: se utiliza para gestionar el rechazo de una promesa y ejecutar una función que toma error como parámetro.
+  .catch((error) => {
+    console.log(error);
+  });
 
 module.exports = mdLinks;
